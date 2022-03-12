@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    background: url(img/table_blackjack.png) no-repeat bottom center;
+    background-size: auto;
+    border: 1px solid dimgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.message-holder {
+    height: 5vh;
+    text-align: center;
+    color: goldenrod;
+}
+
+.dealer {
+    margin: 50px auto 15px auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card-holder {
+    position: relative;
+    width: 90px;
+    height: 130px;
+}
+
+.dealer img {
+    width: 90px;
+    height: 130px;
+}
+
+.front {
+    position: absolute;
+    width: 90px;
+    height: 130px;
+    backface-visibility: hidden;
+    transform: perspective(980px) rotateY(180deg);
+}
+
+.back {
+    position: absolute;
+    width: 90px;
+    height: 130px;
+    backface-visibility: hidden;
+}
+
+.player {
+    margin: 15px auto 0 auto;
+    position: relative;
+    bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player img {
+    width: 90px;
+    height: 130px;
+}
+
+.chipsHolder {
+    display: flex;
+    justify-content: center;
+}
+.chip-holder{
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease;
+
+}
+.chip-holder img{
+    width: 100%;
+    display: block;
+}
+.chips {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.chips:hover{
+    transform: scale(1.3);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 3px;
+    color: goldenrod;
+    background: transparent;
+    box-shadow: 0 0 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    border-radius: 100px;
+    margin-left: 50px;
+    width: 140px;
+}
+
+.newCardBtn {
+    display: none;
+}
+
+.stand {
+    display: none;
+}
+
+.newGameBtn {
+    width: 200px;
+}
+.placingBets{
+    display: flex;
+    justify-content: center;
+}
+.betPlaced {
+    width: 50px;
+    height: 50px;
+    visibility: hidden;
+}
+
+.credit {
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background: black;
+    color: goldenrod;
+}
+#dealerSum {
+    color: goldenrod;
+    top: 170px;
+    align-self: flex-start;
+    font-size: 4rem;
+    margin-left: 150px;
+    text-align: center;
+}
+
+#playerSum {
+    color: goldenrod;
+    align-self: flex-start;
+    font-size: 4rem;
+    margin-left: 150px;
+    text-align: center;
+}
+.card{
+    display: none;
+
+}
+
+
+

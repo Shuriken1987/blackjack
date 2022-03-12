@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="message-holder">
+    <h1 id="message-el"></h1>
+</div>
+
+<div class="container">
+    <h1 class="credit">1000$</h1>
+    <h3 id="dealerSum">0</h3>
+    <div class="dealer">
+        <div class="card-holder">
+            <div class="front">
+                <img src="" alt="" class="card" id="dealerFirstCardFront">
+            </div>
+            <div class="back">
+                <img src="" alt="" class="card" id="dealerFirstCardBack">
+            </div>
+        </div>
+        <div class="card-holder">
+            <img src="" alt="" class="card" id="dealerSecondCard">
+        </div>
+    </div>
+
+    <div class="placingBets">
+        <img src="" alt="" class="betPlaced">
+    </div>
+
+    <h3 id="playerSum">0</h3>
+    <div class="player">
+        <div class="card-holder">
+            <img src="" alt="" class="card" id="firstCard">
+        </div>
+        <div class="card-holder">
+            <img src="" alt="" class="card" id="secondCard">
+        </div>
+    </div>
+
+    <div class="chipsHolder">
+        <div class="chip-holder">
+            <img src="img/chip_100.png" alt="" class="chips" id="hundred">
+        </div>
+        <div class="chip-holder">
+            <img src="img/chip_50.png" alt="" class=" chips" id="fifty">
+        </div>
+        <div class="chip-holder">
+            <img src="img/chip_20.png" alt="" class="chips" id="twenty">
+        </div>
+
+    </div>
+</div>
+
+<div class="buttons">
+    <button class="newCardBtn btn">Hit</button>
+    <button class="stand btn">Stand</button>
+    <button class="newGameBtn btn">New game</button>
+</div>
+
+
+<script src="js/Card.js"></script>
+<script src="js/Deck.js"></script>
+<script src="js/Player.js"></script>
+<script src="js/Dealer.js"></script>
+<script src="js/CheckWin.js"></script>
+<script src="js/Game.js"></script>
+
+</body>
+</html>
