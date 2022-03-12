@@ -27,7 +27,7 @@ class Game {
     newGame() {
         this.newCardBtn.addEventListener('click', this.listener);
         this.removeTable();
-        this.drawCard();
+       setTimeout(()=>this.drawCard(),1000);
     }
 
     drawCard() {
