@@ -10,24 +10,38 @@ class CheckWin {
             return (Math.abs(curr - this.blackjack) < Math.abs(prev - this.blackjack) ? curr : prev);
         });
         if (this.closest === game.playerSum() && this.closest !== game.dealerSum()) {
-            return this.messageEl.innerHTML = 'You won';
+             // game.gameOver = true;
+             this.messageEl.innerHTML = 'You won';
+             bet.whoWonChips();
         } else if (this.closest === game.dealerSum() && this.closest !== game.playerSum()) {
-            return this.messageEl.innerHTML = 'You lost';
+             // game.gameOver = true;
+            this.messageEl.innerHTML = 'You lost';
+            bet.whoWonChips();
         } else {
-            return this.messageEl.innerHTML = 'Draw';
+             // game.gameOver = true;
+            this.messageEl.innerHTML = 'Draw';
+            bet.whoWonChips();
         }
+        return this.messageEl.innerHTML;
     }
 
     checkWinn() {
         if (game.playerIsAlive && game.dealerIsAlive) {
             this.closer();
         } else if (game.playerIsAlive && game.dealerIsAlive === false) {
-            return this.messageEl.innerHTML = 'You won';
+             // game.gameOver = true;
+            this.messageEl.innerHTML = 'You won';
+            bet.whoWonChips();
         } else if (game.playerIsAlive === false && game.dealerIsAlive) {
-            return this.messageEl.innerHTML = 'You lost';
+            // game.gameOver = true;
+          this.messageEl.innerHTML = 'You lost';
+          bet.whoWonChips();
         } else {
-            return this.messageEl.innerHTML = 'Draw';
+             // game.gameOver = true;
+            this.messageEl.innerHTML = 'Draw';
+            bet.whoWonChips();
         }
+         return this.messageEl.innerHTML;
     }
 }
 

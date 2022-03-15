@@ -26,6 +26,23 @@ class Player {
         this.playerNewCard.setAttribute('src', game.cardImage());
         this.playerNewCard.style.display = 'block';
     }
+    cardValue(){
+        this.value = 0;
+        for (let i = 0; i < this.hand.length; i++) {
+            if (this.hand[i].value === 'ace') {
+                if (game.sumPlayer < 11) {
+                    this.value += 11;
+                } else {
+                    this.value += 1;
+                }
+            } else if (isNaN(this.hand[i].value)) {
+                this.value += 10;
+            } else {
+                this.value +=  this.hand[i].value;
+            }
+        }
+        return this.value;
+    }
 }
 
 let player = new Player();
