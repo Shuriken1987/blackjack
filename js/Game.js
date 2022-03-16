@@ -27,7 +27,6 @@ class Game {
     }
 
     newGame() {
-        this.newGameBtn.style.display = 'none';
         this.removeTable();
         bet.clicks();
         this.newRound();
@@ -107,6 +106,7 @@ class Game {
     }
 
     removeTable() {
+        this.newGameBtn.style.display = 'none';
         this.playerIsAlive = false;
         this.dealerIsAlive = false;
         player.hand = [];
