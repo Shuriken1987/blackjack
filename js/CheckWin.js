@@ -22,12 +22,12 @@ class CheckWin {
     }
 
     checkWinn() {
-        if (game.playerIsAlive && game.dealerIsAlive) {
+        if (player.isAlive && dealer.isAlive) {
             this.closer();
-        } else if (game.playerIsAlive && game.dealerIsAlive === false) {
+        } else if (player.isAlive && dealer.isAlive === false) {
             this.messageEl.innerHTML = 'You won';
             bet.whoWonChips();
-        } else if (game.playerIsAlive === false && game.dealerIsAlive) {
+        } else if (player.isAlive === false && dealer.isAlive) {
           this.messageEl.innerHTML = 'You lost';
           bet.whoWonChips();
         } else {

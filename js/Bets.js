@@ -3,6 +3,7 @@ class Bet {
         this.chips = document.querySelectorAll('.chips');
         this.playerCredit = document.querySelector('.credit');      // starting value 1000$
         this.value = 0;
+        this.gameOver = false;
     }
     clicks() {
         for (let i = 0; i < this.chips.length; i++) {
@@ -23,8 +24,9 @@ class Bet {
         if (parseInt(bet.playerCredit.innerHTML) <= 0){
             bet.playerCredit.innerHTML = 0  + ' €';
             bet.removeClicks();
-            game.newGameBtn.removeEventListener('click',game.newGameListener);
+            // this.newGameBtn.removeEventListener('click',this.newGameListener); // treba srediti da se izgubi dugme na kraju igre
             checkWin.messageEl.innerHTML = 'You dont have enough credit';
+            this.gameOver = true;
         }
     }
     whoWonChips() {

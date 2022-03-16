@@ -4,15 +4,16 @@ class Player {
         this.playerSecondCard = document.querySelector('#secondCard');
         this.hand = [];
         this.score = 0;
+        this.isAlive = false;
     }
 
     cards() {
         this.hand.push(deck.getRandomCard());
-        this.playerFirstCard.setAttribute('src', game.cardImage());
+        this.playerFirstCard.setAttribute('src', deck.cardImage());
         this.playerFirstCard.style.display = 'block';
         setTimeout(() => {
             this.hand.push(deck.getRandomCard());
-            this.playerSecondCard.setAttribute('src', game.cardImage());
+            this.playerSecondCard.setAttribute('src', deck.cardImage());
             this.playerSecondCard.style.display = 'block';
             this.sum();
         }, 500);
@@ -24,7 +25,7 @@ class Player {
         this.playerNewCard.className = 'newCard';
         this.playerDiv.appendChild(this.playerNewCard);
         this.hand.push(deck.getRandomCard());
-        this.playerNewCard.setAttribute('src', game.cardImage());
+        this.playerNewCard.setAttribute('src', deck.cardImage());
         this.playerNewCard.style.display = 'block';
     }
     cardValue(){

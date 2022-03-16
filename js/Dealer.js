@@ -7,19 +7,22 @@ class Dealer {
         this.front = document.querySelector('.front');
         this.back = document.querySelector('.back');
         this.score = 0;
+        this.isAlive = false;
     }
 
     cards() {
         setTimeout(() => {
-            this.hand.push(deck.getRandomCard());
+            // this.hand.push(deck.getRandomCard());   // old
+            this.hiden = deck.getRandomCard();
             this.dealerFirstCardBack.style.display = 'block';
             this.dealerFirstCardBack.setAttribute('src', 'img/backSide.png');
-            this.dealerFirstCardFront.setAttribute('src', game.cardImage());
+            this.dealerFirstCardFront.setAttribute('src', deck.cardImage());
             this.dealerFirstCardFront.style.display = 'block';
             setTimeout(() => {
                 this.hand.push(deck.getRandomCard());
-                this.dealerSecondCard.setAttribute('src', game.cardImage());
+                this.dealerSecondCard.setAttribute('src', deck.cardImage());
                 this.dealerSecondCard.style.display = 'block';
+                this.sum();       // erase this if u uncomment first line
             }, 500);
         }, 1000);
     }
@@ -30,17 +33,17 @@ class Dealer {
         this.dealerNewCard.className = 'newCard';
         this.dealerDiv.appendChild(this.dealerNewCard);
         this.hand.push(deck.getRandomCard());
-        this.dealerNewCard.setAttribute('src', game.cardImage());
+        this.dealerNewCard.setAttribute('src', deck.cardImage());
         this.dealerNewCard.style.display = 'block';
     }
         cardValue(){
         this.value = 0;
         for (let i = 0; i < this.hand.length; i++) {
             if (this.hand[i].value === 'ace') {
-                if (this.score < 11) {
-                    this.value += 11;
-                } else {
+                if (this.score > 11) {
                     this.value += 1;
+                } else {
+                    this.value += 11;
                 }
             } else if (isNaN(this.hand[i].value)) {
                 this.value += 10;

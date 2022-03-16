@@ -19,6 +19,14 @@ class Deck {
         this.cards.splice(rand, 1);
         return this.card;
     }
+
+    cardImage() {
+        this.path = '';
+        for (let i = 0; i < this.drawnCards.length; i++) {
+            this.path = 'img/' + this.drawnCards[i].sign + '_' + this.drawnCards[i].value + '.png';
+        }
+        return this.path;
+    }
 }
 
 let deck = new Deck(allCards);
