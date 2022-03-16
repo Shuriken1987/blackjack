@@ -15,7 +15,6 @@ class Bet {
         }
     }
     placeYourBets() {
-        // let playerCredit = document.querySelector('.credit');      // starting value 1000$
         let betPlaced = document.querySelector('.betPlaced');     // img in the center of the board where bets are placed
         betPlaced.style.visibility = 'visible';
         betPlaced.setAttribute('src', this.getAttribute('src'));
