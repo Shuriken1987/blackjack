@@ -119,7 +119,6 @@ body {
 }
 
 .newGameBtn {
-    /*display: none;*/
     width: 200px;
 }
 .placingBets{
@@ -127,9 +126,6 @@ body {
     justify-content: center;
 }
 .betPlaced {
-    /*position: relative;*/
-    /*bottom: 20px;*/
-    /*left: 400px;*/
     width: 50px;
     height: 50px;
     visibility: hidden;
@@ -145,11 +141,6 @@ body {
     background: black;
     color: goldenrod;
 }
-/*.sum-holder{*/
-/*    border: 1px solid red;*/
-/*    display: flex;*/
-/*    display: ;*/
-/*}*/
 #dealerSum {
     color: goldenrod;
     top: 170px;
@@ -166,10 +157,6 @@ body {
     margin-left: 150px;
     text-align: center;
 }
-
-/*#firstCard, #secondCard, #dealerFirstCardFront, #dealerSecondCard, #dealerFirstCardBack {*/
-/*   display: none;*/
-/*}*/
 .card{
     display: none;
 
