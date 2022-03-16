@@ -4,8 +4,6 @@ class Game {
         this.newCardBtn = document.querySelector('.newCardBtn');
         this.standBtn = document.querySelector('.stand');
         this.newGameBtn = document.querySelector('.newGameBtn');
-        this.sumPlayer = 0;
-        this.sumDealer = 0;
         this.playerIsAlive = false;
         this.dealerIsAlive = false;
     }
@@ -44,8 +42,8 @@ class Game {
     hit() {
         this.playerIsAlive = true;
         player.newCard();
-        this.playerSum();
-        if (this.playerSum() > 21) {
+        player.sum();
+        if (player.sum() > 21) {
             this.standBtn.style.display = 'none';
             this.newCardBtn.style.display = 'none';
             this.playerIsAlive = false;
@@ -61,13 +59,13 @@ class Game {
         this.newCardBtn.style.display = 'none';
         dealer.front.style.transform = 'perspective(900px) rotateY(0)';
         dealer.back.style.transform = 'perspective(900px) rotateY(180deg)';
-        this.dealerSum();
+        dealer.sum();
         let loop = setInterval(() => {
-            if (this.dealerSum() < 17 && this.playerIsAlive === true) {
+            if (dealer.sum() < 17 && this.playerIsAlive === true) {
                 this.dealerIsAlive = true;
                 dealer.newCard();
-                this.dealerSum();
-            } else if (this.dealerSum() < 22 && this.dealerSum() >= 17) {
+                dealer.sum();
+            } else if (dealer.sum() < 22 && dealer.sum() >= 17) {
                 this.dealerIsAlive = true;
                 clearInterval(loop);
                 if (this.playerIsAlive === false) {
@@ -77,7 +75,7 @@ class Game {
                     checkWin.checkWinn();
                     setTimeout(() => this.newGameBtn.style.display = 'block', 1000);
                 }
-            } else if (this.dealerSum() < 17 && this.playerIsAlive === false) {
+            } else if (dealer.sum() < 17 && this.playerIsAlive === false) {
                 this.dealerIsAlive = true;
                 clearInterval(loop);
                 checkWin.checkWinn();
@@ -91,20 +89,6 @@ class Game {
         }, 2000);
     }
 
-    playerSum() {
-        this.playerSumView = document.querySelector('#playerSum');
-        this.sumPlayer = player.cardValue();
-        this.playerSumView.innerHTML = this.sumPlayer;
-        return this.playerSumView.innerHTML;
-    }
-
-    dealerSum() {
-        this.dealerSumView = document.querySelector('#dealerSum');
-        this.sumDealer = dealer.cardValue();
-        this.dealerSumView.innerHTML = this.sumDealer;
-        return this.dealerSumView.innerHTML;
-    }
-
     removeTable() {
         this.newGameBtn.style.display = 'none';
         this.playerIsAlive = false;
@@ -115,12 +99,12 @@ class Game {
         dealer.front.style.transform = 'perspective(900px) rotateY(180)';
         dealer.back.style.transform = 'perspective(900px) rotateY(0deg)';
         checkWin.messageEl.innerHTML = '';
-        this.playerSumView = document.querySelector('#playerSum');
-        this.dealerSumView = document.querySelector('#dealerSum');
-        this.sumPlayer = 0;
-        this.sumDealer = 0;
-        this.playerSumView.innerHTML = this.sumPlayer;
-        this.dealerSumView.innerHTML = this.sumDealer;
+        player.scoreView = document.querySelector('#playerSum');
+        dealer.scoreView = document.querySelector('#dealerSum');
+        player.score = 0;
+        dealer.score = 0;
+        player.scoreView.innerHTML = player.score;
+        dealer.scoreView.innerHTML = dealer.score;
         player.playerFirstCard.style.display = 'none';
         player.playerSecondCard.style.display = 'none';
         dealer.dealerFirstCardFront.style.display = 'none';

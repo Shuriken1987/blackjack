@@ -6,6 +6,7 @@ class Dealer {
         this.dealerSecondCard = document.querySelector('#dealerSecondCard');
         this.front = document.querySelector('.front');
         this.back = document.querySelector('.back');
+        this.score = 0;
     }
 
     cards() {
@@ -36,7 +37,7 @@ class Dealer {
         this.value = 0;
         for (let i = 0; i < this.hand.length; i++) {
             if (this.hand[i].value === 'ace') {
-                if (game.sumDealer < 11) {
+                if (this.score < 11) {
                     this.value += 11;
                 } else {
                     this.value += 1;
@@ -48,6 +49,13 @@ class Dealer {
             }
         }
         return this.value;
+    }
+
+    sum() {
+        this.scoreView = document.querySelector('#dealerSum');
+        dealer.score = dealer.cardValue();
+        this.scoreView.innerHTML = dealer.score;
+        return this.scoreView.innerHTML;
     }
 }
 

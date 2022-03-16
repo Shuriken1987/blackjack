@@ -3,6 +3,7 @@ class Player {
         this.playerFirstCard = document.querySelector('#firstCard');
         this.playerSecondCard = document.querySelector('#secondCard');
         this.hand = [];
+        this.score = 0;
     }
 
     cards() {
@@ -13,7 +14,7 @@ class Player {
             this.hand.push(deck.getRandomCard());
             this.playerSecondCard.setAttribute('src', game.cardImage());
             this.playerSecondCard.style.display = 'block';
-            game.playerSum();
+            this.sum();
         }, 500);
     }
 
@@ -30,7 +31,7 @@ class Player {
         this.value = 0;
         for (let i = 0; i < this.hand.length; i++) {
             if (this.hand[i].value === 'ace') {
-                if (game.sumPlayer < 11) {
+                if (this.score < 11) {
                     this.value += 11;
                 } else {
                     this.value += 1;
@@ -42,6 +43,12 @@ class Player {
             }
         }
         return this.value;
+    }
+    sum() {
+        this.scoreView = document.querySelector('#playerSum');
+        this.score = this.cardValue();
+        this.scoreView.innerHTML = this.score;
+        return this.scoreView.innerHTML;
     }
 }
 

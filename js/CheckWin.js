@@ -4,14 +4,14 @@ class CheckWin {
     }
     closer() {
         this.blackjack = 21;
-        this.numbers = [game.playerSum(), game.dealerSum()];
+        this.numbers = [player.sum(), dealer.sum()];
         this.closest = this.numbers.reduce((prev, curr) => {
             return (Math.abs(curr - this.blackjack) < Math.abs(prev - this.blackjack) ? curr : prev);
         });
-        if (this.closest === game.playerSum() && this.closest !== game.dealerSum()) {
+        if (this.closest === player.sum() && this.closest !== dealer.sum()) {
              this.messageEl.innerHTML = 'You won';
              bet.whoWonChips();
-        } else if (this.closest === game.dealerSum() && this.closest !== game.playerSum()) {
+        } else if (this.closest === dealer.sum() && this.closest !== player.sum()) {
             this.messageEl.innerHTML = 'You lost';
             bet.whoWonChips();
         } else {
