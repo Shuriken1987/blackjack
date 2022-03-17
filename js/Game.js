@@ -59,7 +59,7 @@
                     dealer.isAlive = true;
                     dealer.newCard();
                     dealer.sum();
-                } else if (dealer.sum() < 22 && dealer.sum() >= 17 && player.isAlive === false) {
+                } else if (dealer.sum() < 22 && dealer.sum() >= 17 ) {
                     dealer.isAlive = true;
                     checkWin.checkWinn();
                     clearInterval(loop);
