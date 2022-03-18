@@ -3,7 +3,7 @@ class Bet {
         this.chips = document.querySelectorAll('.chips');
         this.playerCredit = document.querySelector('.credit');      // starting value 1000$
         this.value = 0;
-        this.gameOver = false;
+        // this.gameOver = false;
     }
 
     clicks() {
@@ -29,7 +29,7 @@ class Bet {
             bet.removeClicks();
             game.newGameBtn.removeEventListener('click',game.newGameListener);
             checkWin.messageEl.innerHTML = 'You dont have enough credit';
-            this.gameOver = true;
+            // this.gameOver = true;
         }
     }
 
