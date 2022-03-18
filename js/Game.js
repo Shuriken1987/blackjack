@@ -1,4 +1,4 @@
-(function () {
+
     class Game {
         constructor() {
             this.newCardBtn = document.querySelector('.newCardBtn');
@@ -127,5 +127,5 @@
 
     let game = new Game();
     game.init();
-})();
+
 

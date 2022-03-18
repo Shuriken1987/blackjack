@@ -19,7 +19,7 @@ class Bet {
     }
 
     placeYourBets() {
-        let betPlaced = document.querySelector('.betPlaced');     // img in the center of the board where bets are placed
+        let betPlaced = document.querySelector('.betPlaced');
         betPlaced.style.visibility = 'visible';
         betPlaced.setAttribute('src', this.getAttribute('src'));
         bet.playerCredit.innerHTML = parseInt(bet.playerCredit.innerHTML) - parseInt(this.id) + ' €';
@@ -27,7 +27,7 @@ class Bet {
         if (parseInt(bet.playerCredit.innerHTML) <= 0) {
             bet.playerCredit.innerHTML = 0 + ' €';
             bet.removeClicks();
-            // this.newGameBtn.removeEventListener('click',this.newGameListener); // treba srediti da se izgubi dugme na kraju igre
+            game.newGameBtn.removeEventListener('click',game.newGameListener);
             checkWin.messageEl.innerHTML = 'You dont have enough credit';
             this.gameOver = true;
         }
