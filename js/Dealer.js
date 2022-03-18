@@ -35,23 +35,22 @@ class Dealer {
         this.hand.push(deck.getRandomCard());
         this.dealerNewCard.setAttribute('src', deck.cardImage());
         this.dealerNewCard.style.display = 'block';
+        this.sum();
     }
-        cardValue(){
-        this.value = 0;
-        for (let i = 0; i < this.hand.length; i++) {
-            if (this.hand[i].value === 'ace') {
-                if (this.score > 11) {
-                    this.value += 1;
-                } else {
-                    this.value += 11;
-                }
-            } else if (isNaN(this.hand[i].value)) {
-                this.value += 10;
+       cardValue(){
+         // let ace = this.hand.includes('ace');
+         this.value = [];
+         for (let i = 0; i < this.hand.length; i++) {
+             this.value.push(this.hand[i].value);
+             if (this.value[i] === 'ace') {
+                 (this.score > 21) ? this.value[i] = 1 : this.value[i] = 11;
+            } else if (isNaN(this.value[i])) {
+                this.value[i] = 10;
             } else {
-                this.value +=  this.hand[i].value;
+                this.value[i] =  this.hand[i].value;
             }
-        }
-        return this.value;
+         }
+                return this.value.reduce((partialSum, a) => partialSum + a, 0);
     }
 
     sum() {

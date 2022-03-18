@@ -15,11 +15,9 @@
         }
 
         newGame() {
-
             this.removeTable();
             bet.clicks();
             this.newRound();
-
         }
 
         drawCard() {
@@ -34,7 +32,6 @@
         hit() {
             player.isAlive = true;
             player.newCard();
-            player.sum();
             if (player.sum() > 21) {
                 this.standBtn.style.display = 'none';
                 this.newCardBtn.style.display = 'none';
@@ -47,18 +44,17 @@
 
         stand() {
             dealer.hand.push(dealer.hiden);
-            // dealer.sum();     // need to fix
+            dealer.sum();
             dealer.isAlive = true;
             this.standBtn.style.display = 'none';
             this.newCardBtn.style.display = 'none';
             dealer.front.style.transform = 'perspective(900px) rotateY(0)';
             dealer.back.style.transform = 'perspective(900px) rotateY(180deg)';
-            dealer.sum();
             let loop = setInterval(() => {
                 if (dealer.sum() < 17 && player.isAlive === true) {
                     dealer.isAlive = true;
                     dealer.newCard();
-                    dealer.sum();
+                    // dealer.sum();
                 } else if (dealer.sum() < 22 && dealer.sum() >= 17 ) {
                     dealer.isAlive = true;
                     checkWin.checkWinn();
