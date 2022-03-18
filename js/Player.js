@@ -23,7 +23,7 @@ class Player {
     newCard() {
         this.playerDiv = document.querySelector('.player');
         this.playerNewCard = document.createElement('img');
-        this.playerNewCard.className = 'newCard';
+        this.playerNewCard.className = 'newCard animate__fadeInTopRight';
         this.playerDiv.appendChild(this.playerNewCard);
         this.hand.push(deck.getRandomCard());
         this.playerNewCard.setAttribute('src', deck.cardImage());

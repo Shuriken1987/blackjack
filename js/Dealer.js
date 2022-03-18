@@ -17,7 +17,7 @@ class Dealer {
             this.dealerFirstCardBack.style.display = 'block';
             this.dealerFirstCardBack.setAttribute('src', 'img/backSide.png');
             this.dealerFirstCardFront.setAttribute('src', deck.cardImage());
-            this.dealerFirstCardFront.style.display = 'block';
+            // this.dealerFirstCardFront.style.display = 'block';
             setTimeout(() => {
                 this.hand.push(deck.getRandomCard());
                 this.dealerSecondCard.setAttribute('src', deck.cardImage());
@@ -30,7 +30,7 @@ class Dealer {
     newCard() {
         this.dealerDiv = document.querySelector('.dealer');
         this.dealerNewCard = document.createElement('img');
-        this.dealerNewCard.className = 'newCard';
+        this.dealerNewCard.className = 'newCard animate__fadeInTopRight';
         this.dealerDiv.appendChild(this.dealerNewCard);
         this.hand.push(deck.getRandomCard());
         this.dealerNewCard.setAttribute('src', deck.cardImage());

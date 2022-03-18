@@ -1,3 +1,4 @@
+@import 'animate.css';
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +17,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-
 .message-holder {
     height: 5vh;
     text-align: center;
@@ -46,7 +46,8 @@ body {
     width: 90px;
     height: 130px;
     backface-visibility: hidden;
-    transform: perspective(980px) rotateY(180deg);
+    transform: perspective(980px) rotateX(180deg);
+    transition: 0.7s;
 }
 
 .back {
@@ -54,6 +55,7 @@ body {
     width: 90px;
     height: 130px;
     backface-visibility: hidden;
+    transition: 0.7s;
 }
 
 .player {
@@ -159,8 +161,12 @@ body {
 }
 .card{
     display: none;
-
+   animation-duration: .5s;
 }
+.newCard{
+     animation-duration: .5s;
+}
+
 
 
 

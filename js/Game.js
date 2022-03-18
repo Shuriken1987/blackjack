@@ -44,12 +44,13 @@
 
         stand() {
             dealer.hand.push(dealer.hiden);
+            dealer.dealerFirstCardFront.style.display = 'block';
             dealer.sum();
             dealer.isAlive = true;
             this.standBtn.style.display = 'none';
             this.newCardBtn.style.display = 'none';
-            dealer.front.style.transform = 'perspective(900px) rotateY(0)';
-            dealer.back.style.transform = 'perspective(900px) rotateY(180deg)';
+            dealer.front.style.transform = 'perspective(900px) rotateX(0)';
+            dealer.back.style.transform = 'perspective(900px) rotateX(180deg)';
             let loop = setInterval(() => {
                 if (dealer.sum() < 17 && player.isAlive === true) {
                     dealer.isAlive = true;
@@ -81,8 +82,8 @@
             player.hand = [];
             dealer.hand = [];
             deck.drawnCards = [];
-            dealer.front.style.transform = 'perspective(900px) rotateY(180)';
-            dealer.back.style.transform = 'perspective(900px) rotateY(0deg)';
+            dealer.front.style.transform = 'perspective(900px) rotateX(180)';
+            dealer.back.style.transform = 'perspective(900px) rotateX(0deg)';
             checkWin.messageEl.innerHTML = '';
             player.scoreView = document.querySelector('#playerSum');
             dealer.scoreView = document.querySelector('#dealerSum');
